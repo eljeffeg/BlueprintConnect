@@ -6,6 +6,12 @@ h3. Normal Neo4j connection
 h3. Normal OrientDB connection
 <pre>Graph graph = new OrientGraph("local:/tmp/orient");</pre>
 
+h3. Normal Rester connection
+<pre>Graph graph = new RexsterGraph("http://localhost:8182/graphs/tinkergraph");</pre>
+
 h3. GraphConnect connection
 <pre>Graph graph = new GraphConnect.openGraph("Neo4j", "/tmp/my_graph");
-Graph graph = new GraphConnect.openGraph("OrientDB", "/tmp/orient");</pre>
+Graph graph = new GraphConnect.openGraph("OrientDB", "/tmp/orient");
+Graph graph = new GraphConnect.openGraph("Rexster", "http://localhost:8182/graphs/tinkergraph");</pre>
+
+Note: in the OrientDB example, GraphConnect defaults to local if no prefix exists.
