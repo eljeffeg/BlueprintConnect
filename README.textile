@@ -1,7 +1,7 @@
 GraphConnect is an attempt to create a generic connection to the different databases by supplying a string of the database type.  This allows you to program a Blueprint application independent of the customer database type, which can be specified in a configuration file.
 
 Normal Neo4j connection
-@
+<pre>
 Graph graph = new Neo4jGraph("/tmp/my_graph");
 Vertex a = graph.addVertex(null);
 Vertex b = graph.addVertex(null);
@@ -10,10 +10,10 @@ b.setProperty("name","peter");
 Edge e = graph.addEdge(null, a, b, "knows");
 e.setProperty("since", 2006);
 graph.shutdown();
-@
+</pre>
 
 GraphConnect connection
-@
+<pre>
 Graph graph = new GraphConnect.openGraph("Neo4j", "/tmp/my_graph");
 Vertex a = graph.addVertex(null);
 Vertex b = graph.addVertex(null);
@@ -22,4 +22,4 @@ b.setProperty("name","peter");
 Edge e = graph.addEdge(null, a, b, "knows");
 e.setProperty("since", 2006);
 graph.shutdown();
-@
+</pre>
