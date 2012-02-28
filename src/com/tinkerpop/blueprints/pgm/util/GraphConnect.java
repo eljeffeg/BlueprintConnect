@@ -14,9 +14,8 @@ import com.tinkerpop.blueprints.pgm.impls.tg.TinkerGraph;
  * Generic Connection API for creating a BluePrint Graph
  * 
  */
-
 public class GraphConnect {
-	
+
 	public static Graph openGraph(final String databasetype, String path) {
 		if (databasetype.equalsIgnoreCase("Rexster")
 				|| databasetype.equalsIgnoreCase("RexsterGraph")) {
@@ -34,7 +33,8 @@ public class GraphConnect {
 		} else if (databasetype.equalsIgnoreCase("Dex")
 				|| databasetype.equalsIgnoreCase("DexGraph")) {
 			return new DexGraph(path);
-		} else if (databasetype.equalsIgnoreCase("InfiniteGraph")) {
+		} else if (databasetype.equalsIgnoreCase("InfiniteGraph")
+				|| databasetype.equalsIgnoreCase("IGGraph")) {
 			return new IGGraph(path);
 		} else if (databasetype.equalsIgnoreCase("TinkerGraph")
 				|| databasetype.equalsIgnoreCase("TinkerPop")) {
@@ -42,7 +42,8 @@ public class GraphConnect {
 				return new TinkerGraph();
 			}
 			return new TinkerGraph(path);
-		} else if (databasetype.equalsIgnoreCase("Sail")) {
+		} else if (databasetype.equalsIgnoreCase("Sail")
+				|| databasetype.equalsIgnoreCase("SailGraph")) {
 			if (path == null || path.length() == 0) {
 				return new MemoryStoreSailGraph();
 			}
@@ -50,7 +51,7 @@ public class GraphConnect {
 		}
 		return null;
 	}
-	
+
 	public static Graph openGraph() {
 		return new TinkerGraph();
 	}
